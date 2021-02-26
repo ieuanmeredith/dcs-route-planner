@@ -1,0 +1,127 @@
+﻿<Page
+    x:Class="DCS_UWP.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:DCS_UWP.ViewModels"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:shared="using:Shared.Models"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <viewModels:MainPageViewModel x:Name="ViewModel" />
+    </Page.DataContext>
+
+    <Grid>
+        <Button Content="Send Waypoints to DCS"
+                Width="199"
+                Click="{x:Bind ViewModel.PushWaypoints}" Margin="407,499,0,0" VerticalAlignment="Top" />
+
+        <ComboBox Margin="43,166,0,0"
+                  Width="270"
+                  PlaceholderText="Pick a Map"
+                  Header="Map"
+                  ItemsSource="{x:Bind ViewModel.Locations}"
+                  SelectionChanged="{x:Bind ViewModel.OnLocationSelectionChanged}"/>
+
+        <ComboBox Margin="43,223,0,0"
+                  Width="270"
+                  PlaceholderText="Pick a POI"
+                  Header="POI"
+                  ItemsSource="{x:Bind ViewModel.POINames}"
+                  SelectionChanged="{x:Bind ViewModel.OnPOISelectionChanged}"/>
+
+        <muxc:NumberBox HorizontalAlignment="Left" 
+                        Margin="43,305,0,0" 
+                        VerticalAlignment="Top" 
+                        PlaceholderText="Lat"
+                        NumberFormatter="{x:Bind ViewModel.LatLongFormatter, Mode=OneTime}"
+                        ValidationMode="InvalidInputOverwritten"
+                        Minimum="-90"
+                        Maximum="90"
+                        Header="Lat"
+                        Value="{x:Bind ViewModel.FormModel.Lat, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Width="270"/>
+
+        <muxc:NumberBox HorizontalAlignment="Left" 
+                        Margin="43,361,0,0" 
+                        VerticalAlignment="Top" 
+                        PlaceholderText="Long"
+                        NumberFormatter="{x:Bind ViewModel.LatLongFormatter, Mode=OneTime}"
+                        ValidationMode="InvalidInputOverwritten"
+                        Minimum="-180"
+                        Maximum="180"
+                        Header="Long"
+                        Value="{x:Bind ViewModel.FormModel.Long, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Width="270"/>
+
+        <muxc:NumberBox HorizontalAlignment="Left" 
+                        x:Name="FormattedNumberBox"
+                        Margin="43,417,0,0" 
+                        VerticalAlignment="Top" 
+                        PlaceholderText="Alt (ft)"
+                        NumberFormatter="{x:Bind ViewModel.AltFormatter, Mode=OneTime}"
+                        ValidationMode="InvalidInputOverwritten"
+                        Maximum="100000"
+                        Header="Alt (ft)"
+                        Value="{x:Bind ViewModel.FormModel.Altitude, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Width="270"/>
+
+        <TextBlock HorizontalAlignment="Left" 
+                   Margin="124,291,0,0" 
+                   Text="or enter manually" 
+                   TextWrapping="Wrap" 
+                   VerticalAlignment="Top"/>
+
+        <Button Content="Add Waypoint" 
+                Margin="45,499,0,0" 
+                VerticalAlignment="Top" 
+                Width="109"
+                Click="{x:Bind ViewModel.AddWaypoint}"/>
+
+        <Image Source="ms-appx:/Assets/Logo.png"
+               HorizontalAlignment="Left"
+               Margin="45,34,0,0"
+               VerticalAlignment="Top"
+               Height="29"
+               Width="267" />
+
+        <ComboBox Margin="43,85,0,0"
+                  Width="271"
+                  PlaceholderText="Pick an Airframe"
+                  Header="Airframe"
+                  ItemsSource="{x:Bind ViewModel.Airframes}"
+                  SelectionChanged="{x:Bind ViewModel.OnAirframeSelectionChanged}"/>
+
+        <ScrollViewer HorizontalAlignment="Left"
+                      Height="450" 
+                      Margin="350,30,0,0" 
+                      VerticalAlignment="Top" 
+                      Width="313"
+                      BorderThickness="1"
+                      CornerRadius="5"
+                      BorderBrush="#888888"
+                      Padding="5">
+            <muxc:ItemsRepeater ItemsSource="{x:Bind ViewModel.Waypoints}">
+                <DataTemplate x:DataType="shared:LocationDetails">
+                    <Grid CornerRadius="3" Background="#dddddd" BorderThickness="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{x:Bind DmsString}"
+                               Padding="10"
+                               FontSize="15"/>
+                    </Grid>
+                </DataTemplate>
+            </muxc:ItemsRepeater>
+        </ScrollViewer>
+        <Button Content="Remove Last"
+                Margin="217,499,0,0"
+                VerticalAlignment="Top"
+                Width="97"
+                IsEnabled="{x:Bind ViewModel.FormModel.RemoveWaypointEnabled, Mode=OneWay}"
+                Click="{x:Bind ViewModel.RemoveLastWaypoint}"/>
+    </Grid>
+</Page>

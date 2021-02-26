@@ -1,0 +1,5 @@
+MainPackage=E:\dev\DCS_Waypoints_UWP\DCS_UWP\DCS_UWP\bin\ARM\Release\DCS_UWP_1.0.0.0_ARM.msix
+ResourcePack=E:\dev\DCS_Waypoints_UWP\DCS_UWP\DCS_UWP\bin\ARM\Release\DCS_UWP_1.0.0.0_scale-100.msix
+ResourcePack=E:\dev\DCS_Waypoints_UWP\DCS_UWP\DCS_UWP\bin\ARM\Release\DCS_UWP_1.0.0.0_scale-125.msix
+ResourcePack=E:\dev\DCS_Waypoints_UWP\DCS_UWP\DCS_UWP\bin\ARM\Release\DCS_UWP_1.0.0.0_scale-150.msix
+ResourcePack=E:\dev\DCS_Waypoints_UWP\DCS_UWP\DCS_UWP\bin\ARM\Release\DCS_UWP_1.0.0.0_scale-400.msix

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectView>ProjectFiles</ProjectView>
+    <Source>C:\Users\Ieuan\Desktop\dcswp.png</Source>
+    <SmallTileSource>C:\Users\Ieuan\Desktop\dcswp.png</SmallTileSource>
+    <MediumTileSource>C:\Users\Ieuan\Desktop\dcswp.png</MediumTileSource>
+    <WideTileSource>C:\Users\Ieuan\Desktop\dcswp.png</WideTileSource>
+    <LargeTileSource>C:\Users\Ieuan\Desktop\dcswp.png</LargeTileSource>
+    <AppIconSource>C:\Users\Ieuan\Desktop\dcswp.png</AppIconSource>
+    <SplashScreenSource>C:\Users\Ieuan\Desktop\dcswp.png</SplashScreenSource>
+    <PackageLogoSource>C:\Users\Ieuan\Desktop\dcswp.png</PackageLogoSource>
+    <UapAppxPackageBuildMode>SideloadOnly</UapAppxPackageBuildMode>
+    <AppxShowAllApps>False</AppxShowAllApps>
+    <AppxBuildConfigurationSelection>x86|x64|arm</AppxBuildConfigurationSelection>
+    <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DeviceId>30f105c9-681e-420b-a277-7c086ead8a4e</DeviceId>
+    <UseEmulator>true</UseEmulator>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <DeviceId>30f105c9-681e-420b-a277-7c086ead8a4e</DeviceId>
+    <UseEmulator>true</UseEmulator>
+  </PropertyGroup>
+</Project>

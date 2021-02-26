@@ -1,0 +1,1 @@
+MainPackage=E:\dev\DCS_Waypoints_UWP\DCS_UWP\DCS_UWP\bin\x86\Release\DCS_UWP_1.0.0.0_x86.msix
