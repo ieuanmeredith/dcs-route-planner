@@ -9,7 +9,7 @@
   <Identity
     Name="01896cd9-6723-4c80-8935-dbcd685251bd"
     Publisher="CN=yinlad"
-    Version="1.0.0.0" />
+    Version="1.1.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="01896cd9-6723-4c80-8935-dbcd685251bd" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

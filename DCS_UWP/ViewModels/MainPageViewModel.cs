@@ -77,6 +77,9 @@ namespace DCS_UWP.ViewModels
                 case "Persian Gulf":
                     poiArray = await this.ReadPoiFromFile("Persian Gulf.json");
                     break;
+                case "Syria":
+                    poiArray = await this.ReadPoiFromFile("Syria.json");
+                    break;
                 default:
                     poiArray = new List<POI>();
                     break;
